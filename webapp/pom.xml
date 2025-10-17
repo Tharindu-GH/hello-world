@@ -14,17 +14,7 @@
   <artifactId>webapp</artifactId>
   <packaging>war</packaging>
   <name>Webapp Module</name>
-  <description>Web application module</description>
-
-  <build>
-    <finalName>${project.artifactId}</finalName>
-    <plugins>
-      <plugin>
-        <groupId>org.eclipse.jetty</groupId>
-        <artifactId>jetty-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
+  <description>Web application module.</description>
 
   <dependencies>
     <dependency>
@@ -38,5 +28,16 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
+
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>11.0.15</version>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
