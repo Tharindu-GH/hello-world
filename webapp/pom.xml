@@ -14,7 +14,6 @@
   <artifactId>webapp</artifactId>
   <packaging>war</packaging>
   <name>Webapp Module</name>
-  <description>Web application module.</description>
 
   <dependencies>
     <dependency>
