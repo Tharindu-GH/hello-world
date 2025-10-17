@@ -15,7 +15,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <maven.compiler.release>17</maven.compiler.release> <!-- use 21 if your Jenkins uses Java 21 -->
+    <maven.compiler.release>17</maven.compiler.release>
   </properties>
 
   <modules>
@@ -31,9 +31,48 @@
     </site>
   </distributionManagement>
 
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit-dep</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-core</artifactId>
+      <version>1.3</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-library</artifactId>
+      <version>1.3</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>3.12.4</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>jsp-api</artifactId>
+      <version>2.1</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
-      <!-- ✅ Modern compiler plugin -->
+      <!-- Modern compiler plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -53,6 +92,13 @@
         </configuration>
       </plugin>
 
+      <!-- Jetty plugin -->
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>8.1.16.v20140903</version>
+      </plugin>
+
       <!-- Release plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -70,25 +116,26 @@
         <version>3.12.1</version>
         <configuration>
           <reportPlugins>
-            <plugin><artifactId>maven-checkstyle-plugin</artifactId></plugin>
-            <plugin><artifactId>maven-jxr-plugin</artifactId></plugin>
-            <plugin><artifactId>maven-javadoc-plugin</artifactId></plugin>
-            <plugin><artifactId>maven-pmd-plugin</artifactId></plugin>
-            <plugin><artifactId>maven-surefire-report-plugin</artifactId></plugin>
+            <plugin><artifactId>maven-checkstyle-plugin</artifactId><version>3.3.1</version></plugin>
+            <plugin><artifactId>maven-jxr-plugin</artifactId><version>3.3.1</version></plugin>
+            <plugin><artifactId>maven-javadoc-plugin</artifactId><version>3.6.3</version></plugin>
+            <plugin><artifactId>maven-pmd-plugin</artifactId><version>3.15.0</version></plugin>
+            <plugin><artifactId>maven-surefire-report-plugin</artifactId><version>3.0.0-M9</version></plugin>
             <plugin>
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>findbugs-maven-plugin</artifactId>
+              <version>3.0.5</version>
             </plugin>
             <plugin>
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>taglist-maven-plugin</artifactId>
+              <version>3.1</version>
             </plugin>
           </reportPlugins>
         </configuration>
       </plugin>
     </plugins>
 
-    <!-- Optional: define default plugin versions for submodules -->
     <pluginManagement>
       <plugins>
         <plugin>
