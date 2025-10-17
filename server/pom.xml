@@ -14,16 +14,12 @@
   <artifactId>server</artifactId>
   <packaging>jar</packaging>
   <name>Server Module</name>
-  <description>Business logic module</description>
-
-  <build>
-    <finalName>${project.artifactId}</finalName>
-  </build>
+  <description>Server logic and business code.</description>
 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
-      <artifactId>junit-dep</artifactId>
+      <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
